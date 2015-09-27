@@ -19,6 +19,9 @@
 #include <algorithm>
 
 using namespace std;
+
+typedef map <string, int> item_freq_map;
+
 class Itemset {
 public:
     Itemset();

@@ -1,12 +1,13 @@
 #include <iostream>
 #include <vector>
+
 #include "Node.h"
 #include "Tries.h"
 #include "Itemset.h"
 using namespace std;
-
+typedef map <string, int> item_freq_map;
 // Test program
-int main(string[] argv)
+int main(string argv[])
 {
     Trie* trie = new Trie();
     trie->addWord("Hello");
@@ -31,9 +32,11 @@ int main(string[] argv)
     delete trie;
     
 	/***** start timer ****/
-	clock_t s,e;
+	
+    
+    clock_t s,e;
     s = clock();
-
+    Itemset is = new Itemset();
     /**** get inputs ****/
 	string input_filename = argv[1];
 	string output_filename = argv[3];
@@ -49,7 +52,8 @@ int main(string[] argv)
 
 	/***** read input file and count one-item frequecies *****/
 	item_freq_map one_item_candidate;
-	freq(input, one_item_candidate);
+	
+        is.freq(input, one_item_candidate);
 
 
 	/****** find one-item sets ******/
