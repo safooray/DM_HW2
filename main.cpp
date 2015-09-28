@@ -4,8 +4,8 @@
 #include "Node.h"
 #include "Tries.h"
 #include "Itemset.h"
-using namespace std;
-typedef map <string, int> item_freq_map;
+
+
 // Test program
 int main(string argv[])
 {
@@ -57,7 +57,7 @@ int main(string argv[])
 
 
 	/****** find one-item sets ******/
-	for (auto it = one_item_candidate.cbegin(); it != one_item_candidate.cend(); ){
+	for (auto it = one_item_candidate.begin(); it != one_item_candidate.end(); ){
 		if (it->second < min_st){
 			one_item_candidate.erase(it++);
 		}
@@ -91,7 +91,7 @@ int main(string argv[])
 	//count_frequency(two_item_candidate)
 
 	/*** check which two-item-candidate are frequent ****/
-	for (auto it = two_item_candidate.cbegin(); it != two_item_candidate.cend(); ){
+	for (auto it = two_item_candidate.begin(); it != two_item_candidate.end(); ){
 		if (it->second < min_st){
 			two_item_candidate.erase(it++);
 		}
@@ -156,7 +156,7 @@ int main(string argv[])
 
 		//count_frequency(two_item_candidate)
 		/*** check which many-item-candidate are frequent ****/
-		for (auto it = many_item_candidate.cbegin(); it != many_item_candidate.cend(); ){
+		for (auto it = many_item_candidate.begin(); it != many_item_candidate.end(); ){
 			if (it->second < min_st){
 				many_item_candidate.erase(it++);
 			}
@@ -187,12 +187,12 @@ int main(string argv[])
   	vector <vector<int> > transactions;
   	string line;
   	/***** another way to read input file and save it as 2D vector ****/
-  	while(getline(input, line)){
-    	stringstream ss(line);
-    	istream_iterator<int> begin(ss), end;
-    	transactions.push_back(vector<int>(begin, end));
+  	//while(getline(input, line)){
+    	//stringstream ss(line);
+    	//istream_iterator<int> begin(ss), end;
+    	//transactions.push_back(vector<int>(begin, end));
     	//items.insert(transactions.end())
-	}
+	//}
 	
   	cout << two_item[0]<<endl;
 
