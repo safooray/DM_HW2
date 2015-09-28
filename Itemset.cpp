@@ -1,10 +1,6 @@
 
 #include "Itemset.h"
-
-class Itemset {
-
-};
-
+Itemset::Itemset() {};
 void Itemset::freq(istream& in, item_freq_map& words) {
 
     string s;

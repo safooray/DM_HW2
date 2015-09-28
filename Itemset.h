@@ -25,9 +25,10 @@ typedef map <string, int> item_freq_map;
 class Itemset {
 public:
     Itemset();
+    ~Itemset();
     Itemset(const Itemset& orig);
-    virtual ~Itemset();
-    freq(istream& in, item_freq_map& words);
+
+    void freq(istream& in, item_freq_map& words);
 private:
 
 };

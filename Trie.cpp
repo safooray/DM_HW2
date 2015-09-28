@@ -1,37 +1,11 @@
 /* 
- * File:   Tries.cpp
+ * File:   Trie.cpp
  * Author: Ayine
  * 
  * Created on September 27, 2015, 12:43 AM
  */
-
-#include "Tries.h"
+#include "Trie.h"
 #include "Node.h"
-
-class Trie {
-public:
-    Trie();
-    ~Trie();
-    void addWord(string s);
-    bool searchWord(string s);
-    void deleteWord(string s);
-private:
-    Node* root;
-};
-
-Node* Node::findChild(char c)
-{
-    for ( int i = 0; i < mChildren.size(); i++ )
-    {
-        Node* tmp = mChildren.at(i);
-        if ( tmp->content() == c )
-        {
-            return tmp;
-        }
-    }
-
-    return NULL;
-}
 
 Trie::Trie()
 {

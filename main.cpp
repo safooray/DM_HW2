@@ -2,12 +2,12 @@
 #include <vector>
 
 #include "Node.h"
-#include "Tries.h"
+#include "Trie.h"
 #include "Itemset.h"
 
 
 // Test program
-int main(string argv[])
+int main()
 {
     Trie* trie = new Trie();
     trie->addWord("Hello");
@@ -36,8 +36,9 @@ int main(string argv[])
     
     clock_t s,e;
     s = clock();
-    Itemset is = new Itemset();
+    Itemset* is = new Itemset();
     /**** get inputs ****/
+    char* argv[4];
 	string input_filename = argv[1];
 	string output_filename = argv[3];
 	int min_st = atoi(argv[2]);
@@ -53,7 +54,7 @@ int main(string argv[])
 	/***** read input file and count one-item frequecies *****/
 	item_freq_map one_item_candidate;
 	
-        is.freq(input, one_item_candidate);
+        is->freq(input, one_item_candidate);
 
 
 	/****** find one-item sets ******/

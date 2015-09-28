@@ -9,15 +9,18 @@
 #define	TRIES_H
 #include <iostream>
 #include <vector>
+#include "Node.h"
 using namespace std;
 
-class Tries {
+class Trie {
 public:
-    Tries();
-    Tries(const Tries& orig);
-    virtual ~Tries();
+    Trie();
+    ~Trie();
+    void addWord(string s);
+    bool searchWord(string s);
+    void deleteWord(string s);
 private:
-
+    Node* root;
 };
 
 #endif	/* TRIES_H */
