@@ -8,12 +8,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/Users/Ayine/NetBeansProjects/DM2/Itemset.cpp</file>
-            <file>file:/Users/Ayine/NetBeansProjects/DM2/Trie.cpp</file>
-            <file>file:/Users/Ayine/NetBeansProjects/DM2/Itemset.h</file>
             <file>file:/Users/Ayine/NetBeansProjects/DM2/Node.cpp</file>
-            <file>file:/Users/Ayine/NetBeansProjects/DM2/main.cpp</file>
+            <file>file:/Users/Ayine/NetBeansProjects/DM2/Trie.cpp</file>
             <file>file:/Users/Ayine/NetBeansProjects/DM2/Trie.h</file>
             <file>file:/Users/Ayine/NetBeansProjects/DM2/Node.h</file>
+            <file>file:/Users/Ayine/NetBeansProjects/DM2/Itemset.h</file>
         </group>
     </open-files>
 </project-private>

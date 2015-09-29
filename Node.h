@@ -16,8 +16,8 @@ public:
     Node();
     Node(const Node& orig);
     virtual ~Node();
-    std::string content();
     void setContent(std::string s);
+    std::string getContent();
     bool wordMarker();
     void setWordMarker();
     Node* findChild(std::string s);

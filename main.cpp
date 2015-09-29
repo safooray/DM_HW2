@@ -35,6 +35,8 @@ int main(int argc, char *argv[])
 
     is->freq(input, one_item_candidate, trie);
 
+    
+    
     //trie.print(trie.getRoot());
     int tst = trie.searchWord("775");
     /****** find one-item sets ******/

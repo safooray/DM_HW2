@@ -20,31 +20,34 @@ Trie::~Trie()
 
 void Trie::addWord(string s)
 {
+    istringstream iss(s);
+    vector<string> tokens{istream_iterator<string>{iss},
+                      istream_iterator<string>{}};
     Node* current = root;
-
-    if ( s.length() == 0 )
+   
+    if ( tokens.size() == 0 )
     {
         current->setWordMarker(); // an empty word
         return;
     }
 
-    for ( int i = 0; i < s.length(); i++ )
+    for ( int i = 0; i < tokens.size(); i++ )
     {        
-        Node* child = current->findChild(s[i]);
+        Node* child = current->findChild(tokens.at(i));
         if ( child != NULL )
         {
             current = child;
-            //current->setWordFreq((current->getWordFreq()) + 1);
+            current->setWordFreq((current->getWordFreq()) + 1);
         }
         else
         {
             Node* tmp = new Node();
-            tmp->setContent(s[i]);
+            tmp->setContent(tokens.at(i));
             current->appendChild(tmp);
             current = tmp;
-            //current->setWordFreq((current->getWordFreq()) + 1);
+            current->setWordFreq((current->getWordFreq()) + 1);
         }
-        if ( i == s.length() - 1 )
+        if ( i == tokens.size() - 1 )
         {
             current->setWordMarker();
             current->setWordFreq((current->getWordFreq()) + 1);

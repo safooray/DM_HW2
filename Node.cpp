@@ -10,8 +10,8 @@
 
 Node::Node() { mContent = " "; mMarker = false; mFreq = 0;}
 Node::~Node() {}
-char Node::content() { return mContent; }
 void Node::setContent(std::string s) { mContent = s; }
+string Node::getContent() {return mContent; }
 bool Node::wordMarker() { return mMarker; }
 void Node::setWordMarker() { mMarker = true; }
 int Node::setWordFreq(int f) { mFreq = f; }
@@ -21,7 +21,7 @@ Node* Node::findChild(std::string s)
     for ( int i = 0; i < mChildren.size(); i++ )
     {
         Node* tmp = mChildren.at(i);
-        if ( strcmp(tmp->content(), s) == 0)
+        if ( strcmp(tmp->getContent(), s) == 0)
         {
             return tmp;
         }
