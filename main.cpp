@@ -4,6 +4,7 @@
 #include "Node.h"
 #include "Trie.h"
 #include "Itemset.h"
+#include "Utils.h"
 
 
 // Test program
@@ -72,25 +73,27 @@ int main(int argc, char *argv[])
 
 
     string trans;
-
+    Utils utils;
     while (std::getline(in, trans))
     {
     istringstream iss(trans);
     string s;
-    vector<int> st;
+    vector<string> st;
     while ( getline( iss,s, ' ' ) ) 
     {
-        st.push_back(atoi(s.c_str()));
-        }
+        cout << s.c_str() << endl;
+        st.push_back(s.c_str());
+    }
         sort(st.begin(), st.end());
         string sorted_trans;
         int k;
         for( k = 0; k < st.size()-1; ++k){
-            string temp = to_string(st[k]) + " " ;
-            sorted_trans = sorted_trans + temp;
+            sorted_trans = sorted_trans + " " + st[k];
         }
-         sorted_trans = sorted_trans + to_string(st[k]);
+        sorted_trans = sorted_trans + st[k];
         cout << sorted_trans << endl;
+        
+        utils.subsets(2, st);
     }	
     
     //count_frequency(two_item_candidate)

@@ -7,6 +7,7 @@
       <itemPath>/Users/Ayine/NetBeansProjects/DM2/Itemset.h</itemPath>
       <itemPath>/Users/Ayine/NetBeansProjects/DM2/Node.h</itemPath>
       <itemPath>/Users/Ayine/NetBeansProjects/DM2/Trie.h</itemPath>
+      <itemPath>/Users/Ayine/NetBeansProjects/DM2/Utils.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -19,6 +20,7 @@
       <itemPath>/Users/Ayine/NetBeansProjects/DM2/Itemset.cpp</itemPath>
       <itemPath>/Users/Ayine/NetBeansProjects/DM2/Node.cpp</itemPath>
       <itemPath>/Users/Ayine/NetBeansProjects/DM2/Trie.cpp</itemPath>
+      <itemPath>/Users/Ayine/NetBeansProjects/DM2/Utils.cpp</itemPath>
       <itemPath>/Users/Ayine/NetBeansProjects/DM2/main.cpp</itemPath>
       <itemPath>/Users/Ayine/NetBeansProjects/DM2/my_sort.cpp</itemPath>
     </logicalFolder>
@@ -75,6 +77,16 @@
             flavor2="0">
       </item>
       <item path="/Users/Ayine/NetBeansProjects/DM2/Trie.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ayine/NetBeansProjects/DM2/Utils.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ayine/NetBeansProjects/DM2/Utils.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -141,6 +153,16 @@
             flavor2="0">
       </item>
       <item path="/Users/Ayine/NetBeansProjects/DM2/Trie.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ayine/NetBeansProjects/DM2/Utils.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ayine/NetBeansProjects/DM2/Utils.h"
             ex="false"
             tool="3"
             flavor2="0">

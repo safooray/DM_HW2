@@ -28,7 +28,7 @@ public:
     ~Itemset();
     Itemset(const Itemset& orig);
 
-    void freq(istream& in, item_freq_map& words, Trie& trie);
+    void freq(istream& in, item_freq_map& words);
 private:
 
 };

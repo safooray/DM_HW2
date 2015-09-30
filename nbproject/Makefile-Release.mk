@@ -38,6 +38,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/1115151369/Itemset.o \
 	${OBJECTDIR}/_ext/1115151369/Node.o \
 	${OBJECTDIR}/_ext/1115151369/Trie.o \
+	${OBJECTDIR}/_ext/1115151369/Utils.o \
 	${OBJECTDIR}/_ext/1115151369/main.o \
 	${OBJECTDIR}/_ext/1115151369/my_sort.o
 
@@ -80,6 +81,11 @@ ${OBJECTDIR}/_ext/1115151369/Trie.o: /Users/Ayine/NetBeansProjects/DM2/Trie.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/1115151369
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1115151369/Trie.o /Users/Ayine/NetBeansProjects/DM2/Trie.cpp
+
+${OBJECTDIR}/_ext/1115151369/Utils.o: /Users/Ayine/NetBeansProjects/DM2/Utils.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1115151369
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1115151369/Utils.o /Users/Ayine/NetBeansProjects/DM2/Utils.cpp
 
 ${OBJECTDIR}/_ext/1115151369/main.o: /Users/Ayine/NetBeansProjects/DM2/main.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1115151369

@@ -2,7 +2,7 @@
 #include "Itemset.h"
 Itemset::Itemset() {};
 Itemset::~Itemset() {};
-void Itemset::freq(istream& in, item_freq_map& words, Trie& trie) 
+void Itemset::freq(istream& in, item_freq_map& words) 
 {
     string s;
 
