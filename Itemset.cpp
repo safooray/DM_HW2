@@ -1,6 +1,7 @@
 
 #include "Itemset.h"
 Itemset::Itemset() {};
+Itemset::~Itemset() {};
 void Itemset::freq(istream& in, item_freq_map& words, Trie& trie) 
 {
     string s;
@@ -9,10 +10,6 @@ void Itemset::freq(istream& in, item_freq_map& words, Trie& trie)
 //    {
 //       ++words[s];
 //    }
-    while(getline(in, s))
-    {
-        trie.addWord(s);
-    }
 }  
 
 

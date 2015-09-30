@@ -20,6 +20,7 @@ Trie::~Trie()
 
 void Trie::addWord(string s)
 {
+    //cout << s << endl;
     istringstream iss(s);
     vector<string> tokens;
     copy(istream_iterator<string>(iss),
@@ -35,10 +36,12 @@ void Trie::addWord(string s)
 
     for ( int i = 0; i < tokens.size(); i++ )
     {        
+        //cout << tokens.at(i) << endl;
         Node* child = current->findChild(tokens.at(i));
         if ( child != NULL )
         {
             current = child;
+            current->setWordMarker();
             current->setWordFreq((current->getWordFreq()) + 1);
         }
         else
@@ -47,6 +50,7 @@ void Trie::addWord(string s)
             tmp->setContent(tokens.at(i));
             current->appendChild(tmp);
             current = tmp;
+            current->setWordMarker();
             current->setWordFreq((current->getWordFreq()) + 1);
         }
         if ( i == tokens.size() - 1 )
@@ -60,25 +64,29 @@ void Trie::addWord(string s)
 
 int Trie::searchWord(string s)
 {
-        istringstream iss(s);
+    istringstream iss(s);
     vector<string> tokens;
     copy(istream_iterator<string>(iss),
     istream_iterator<string>(),
     back_inserter(tokens));
+    
     Node* current = root;
-
     while ( current != NULL )
     {
         for ( int i = 0; i < tokens.size(); i++ )
         {
             Node* tmp = current->findChild(tokens.at(i));
+            cout << "cont: " << tmp->getContent() << endl;
             if ( tmp == NULL )
                 return -1;
             current = tmp;
         }
 
         if ( current->wordMarker() )
+        {
+            //cout << "returning" << current->getWordFreq();
             return current->getWordFreq();
+        }
         else
             return -1;
     }
