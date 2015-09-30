@@ -38,7 +38,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/1115151369/Itemset.o \
 	${OBJECTDIR}/_ext/1115151369/Node.o \
 	${OBJECTDIR}/_ext/1115151369/Trie.o \
-	${OBJECTDIR}/_ext/1115151369/main.o
+	${OBJECTDIR}/_ext/1115151369/main.o \
+	${OBJECTDIR}/_ext/1115151369/my_sort.o
 
 
 # C Compiler Flags
@@ -84,6 +85,11 @@ ${OBJECTDIR}/_ext/1115151369/main.o: /Users/Ayine/NetBeansProjects/DM2/main.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/1115151369
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1115151369/main.o /Users/Ayine/NetBeansProjects/DM2/main.cpp
+
+${OBJECTDIR}/_ext/1115151369/my_sort.o: /Users/Ayine/NetBeansProjects/DM2/my_sort.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1115151369
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1115151369/my_sort.o /Users/Ayine/NetBeansProjects/DM2/my_sort.cpp
 
 # Subprojects
 .build-subprojects:

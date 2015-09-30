@@ -15,32 +15,25 @@ int main(int argc, char *argv[])
 //    s = clock();
     /**** get inputs ****/
     argv[0] = "T10I4D100K.dat";
-//    argv[1] = "5";
+    argv[1] = "5";
     argv[2] = "out.dat";
     string input_filename = argv[0];
     string output_filename = argv[2];
- //   int min_st = atoi(argv[1]);
+    int min_st = atoi(argv[1]);
 
 
     /*** check if the input file exist***/
     ifstream input(input_filename);
     if ( !input.is_open() ) {
-// handle error.
-            cout << "input file not found!"<< endl;	
+        // handle error.
+        cout << "input file not found!"<< endl;	
     }
 
     /***** read input file and count one-item frequecies *****/
-//    item_freq_map one_item_candidate;
-
-    //is->freq(input, one_item_candidate, trie);
-    string line;
-    while(getline(input, line))
-    {
-        //cout << line << endl;
-        trie.addWord(line);
-    }
-    
-    
+    item_freq_map one_item_candidate;
+    Itemset is;
+    is.freq(input, one_item_candidate, trie);
+  
     //trie.print(trie.getRoot());
     int tst = trie.searchWord("145 170");
     cout << tst << endl;
