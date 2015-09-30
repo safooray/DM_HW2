@@ -132,6 +132,7 @@ int main(int argc, char *argv[])
     vector <string> many_item = two_item;
 
     int count = 0;
+    int k_item = 3;
     while(count <=0){
         vector <string> prev_item = many_item;
         map <string ,int> many_item_candidate;
@@ -154,10 +155,9 @@ int main(int argc, char *argv[])
                 while ( getline( iss2, s2, ' ' ) ) {
                         st.push_back(atoi(s2.c_str()));
                         }
-
+                sort(st.begin(), st.end());
                 st.erase( unique( st.begin(), st.end() ), st.end() );
                 if(st.size()> item_size+1) continue;
-                sort(st.begin(), st.end());
                 string candidate;
                 /*** concatinate string *****/
                 int k = 0;
@@ -167,11 +167,21 @@ int main(int argc, char *argv[])
                 }
 
                 candidate = candidate + to_string(st[k]);  
-                many_item_candidate[candidate] = 0;
+                many_item_candidate[candidate] = ++;
 
             }
             cout << "i: "<< i<< endl;
         }
+        for(auto it = many_item_candidate.begin(); it != many_item_candidate.end();){
+				int val = it->second;
+				if(val<k_item){
+					many_item_candidate.erase(it++);
+				}
+				else{
+					++it;
+				}
+
+			}
 
             //count_frequency(two_item_candidate)
             /*** check which many-item-candidate are frequent ****/
@@ -191,7 +201,8 @@ int main(int argc, char *argv[])
             many_item.push_back(it->first);
         }
 
-    count ++;
+        count ++;
+        k_item ++;
     }
 
 
