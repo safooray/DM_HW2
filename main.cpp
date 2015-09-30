@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
     /***** read input file and count one-item frequecies *****/
     item_freq_map one_item_candidate;
     Itemset is;
-    is.freq(input, one_item_candidate, trie);
+    is.freq(input, one_item_candidate);
   
     /****** find one-item sets ******/
     for (auto it = one_item_candidate.begin(); it != one_item_candidate.end(); ){
@@ -64,8 +64,8 @@ int main(int argc, char *argv[])
                     two_item_candidate[candidate] = 0;
             }
     }
-    ifstream input(input_filename);
-    if (!input.is_open() ) {
+    ifstream in(input_filename);
+    if (!in.is_open() ) {
 // handle error.
         cout << "input file not found!"<< endl;	
     }
@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
 
     string trans;
 
-    while (std::getline(input, trans))
+    while (std::getline(in, trans))
     {
     istringstream iss(trans);
     string s;
