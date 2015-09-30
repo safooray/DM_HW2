@@ -34,12 +34,12 @@ int main(int argc, char *argv[])
   
     /****** find one-item sets ******/
     for (auto it = one_item_candidate.begin(); it != one_item_candidate.end(); ){
-            if (it->second < min_st){
-                    one_item_candidate.erase(it++);
-            }
-            else{
-                ++it;
-            }
+        if (it->second < min_st){
+                one_item_candidate.erase(it++);
+        }
+        else{
+            ++it;
+        }
     }
 
 
@@ -48,8 +48,8 @@ int main(int argc, char *argv[])
     vector <string> one_item;
     /****** write one-item sets into the output file ****/
     for (item_freq_map::iterator it = one_item_candidate.begin(); it != one_item_candidate.end(); ++it) {
-            output << it->first << " ("<< it->second << ")\n";
-            one_item.push_back(it->first);
+        output << it->first << " ("<< it->second << ")\n";
+        one_item.push_back(it->first);
     }
 
     sort(one_item.begin(), one_item.end());
@@ -57,12 +57,12 @@ int main(int argc, char *argv[])
     Trie trie;
     map <string ,int> two_item_candidate;
     for(int i = 0; i < one_item.size(); i++){
-            for(int j = i + 1; j < one_item.size(); j++){
+        for(int j = i + 1; j < one_item.size(); j++){
 
-                    string candidate = one_item[i]+" "+one_item[j];
-                    trie.addWord(candidate);
-                    two_item_candidate[candidate] = 0;
-            }
+            string candidate = one_item[i]+" "+one_item[j];
+            trie.addWord(candidate);
+            two_item_candidate[candidate] = 0;
+        }
     }
     ifstream in(input_filename);
     if (!in.is_open() ) {
