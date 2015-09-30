@@ -45,11 +45,11 @@ int main(int argc, char *argv[])
 
     ofstream output;
     output.open(output_filename);
-    vector <string> one_item;
+    vector <int> one_item;
     /****** write one-item sets into the output file ****/
     for (item_freq_map::iterator it = one_item_candidate.begin(); it != one_item_candidate.end(); ++it) {
         output << it->first << " ("<< it->second << ")\n";
-        one_item.push_back(it->first);
+        one_item.push_back(stoi(it->first));
     }
 
     sort(one_item.begin(), one_item.end());
@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
     for(int i = 0; i < one_item.size(); i++){
         for(int j = i + 1; j < one_item.size(); j++){
 
-            string candidate = one_item[i]+" "+one_item[j];
+            string candidate = to_string(one_item[i])+" "+to_string(one_item[j]);
             trie.addWord(candidate);
             two_item_candidate[candidate] = 0;
         }
@@ -123,21 +123,21 @@ int main(int argc, char *argv[])
         cout<<"AREAR 1"<<endl;
         for(int i = 0; i < prev_item.size(); ++i){
             for(int j = i + 1; j < prev_item.size(); ++j){
-                vector<string> st;
+                vector<int> st;
                 int item_size = 0;
 
                 /****** split string by space *****/
                 string s1;
                 istringstream iss(prev_item[i]);
                 while ( getline( iss, s1, ' ' ) ) {
-                    st.push_back(s1.c_str());
+                    st.push_back(atoi(s1.c_str()));
                     item_size ++;
                 }
 
                 istringstream iss2(prev_item[j]);
                 string s2;
                 while ( getline( iss2, s2, ' ' ) ) {
-                        st.push_back(s2.c_str());
+                        st.push_back(atoi(s2.c_str()));
                         }
 
                 st.erase( unique( st.begin(), st.end() ), st.end() );
@@ -147,11 +147,11 @@ int main(int argc, char *argv[])
                 /*** concatinate string *****/
                 int k = 0;
                 for(k = 0; k != st.size()-1; ++k){
-                    string temp = st[k] + " " ;
+                    string temp = to_string(st[k]) + " " ;
                     candidate = candidate + temp;
                 }
 
-                candidate = candidate + st[k];  
+                candidate = candidate + to_string(st[k]);  
                 many_item_candidate[candidate] = 0;
 
             }
