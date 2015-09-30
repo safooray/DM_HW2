@@ -70,31 +70,43 @@ int main(int argc, char *argv[])
 // handle error.
         cout << "input file not found!"<< endl;	
     }
-
-
-    string trans;
     Utils utils;
+    string trans;
     while (std::getline(in, trans))
-    {
-    istringstream iss(trans);
-    string s;
-    vector<string> st;
-    while ( getline( iss,s, ' ' ) ) 
-    {
-        cout << s.c_str() << endl;
-        st.push_back(s.c_str());
-    }
-        sort(st.begin(), st.end());
-        string sorted_trans;
-        int k;
-        for( k = 0; k < st.size()-1; ++k){
-            sorted_trans = sorted_trans + " " + st[k];
-        }
-        sorted_trans = sorted_trans + st[k];
-        cout << sorted_trans << endl;
-        
-        utils.subsets(2, st);
-    }	
+	{
+    	istringstream iss(trans);
+    	string s;
+    	vector<int> st;
+    	while ( getline( iss,s, ' ' ) ) 
+    	{
+            st.push_back(atoi(s.c_str()));
+            }
+            sort(st.begin(), st.end());
+            vector<string> sorted_trans;
+            int k;
+            for( k = 0; k < st.size(); k++){
+            string temp = to_string(st[k]);
+            sorted_trans.push_back(temp);
+            }
+            cout << "vec: ";
+            for(int m = 0; m < sorted_trans.size(); m ++)
+        	cout << sorted_trans.at(m) << " ";
+            cout << endl;
+            vector<strset> cursubsets = utils.subsets(3, sorted_trans);
+            //utils.printVecOfStrset(cursubsets);
+            for(int sub = 0; sub < cursubsets.size(); sub ++)
+            {
+                string subsetStr = "";
+                for (int submem = 0; submem < cursubsets.at(sub).size(); submem++)
+                {
+                    subsetStr = subsetStr + cursubsets.at(sub).at(submem).c_str() + " ";
+                }
+                cout << subsetStr.substr(0, subsetStr.length() - 1) << endl;
+                int support = trie.searchWord(subsetStr);
+                two_item_candidate[subsetStr] = support;             
+                cout << "support = " << support << endl;
+            }
+	}		
     
     //count_frequency(two_item_candidate)
 

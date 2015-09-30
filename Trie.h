@@ -22,6 +22,7 @@ public:
     void deleteWord(string s);
     Node* getRoot();
     void print(Node*);
+    bool searchFirstLevel(string s);
 private:
     Node* root;
 };

@@ -17,7 +17,17 @@ Trie::~Trie()
 {
     // Free memory
 }
-
+bool Trie::searchFirstLevel(string s)
+{
+    Node* current = root;
+    vector<Node*> children = current->children();
+    for (int i = 0; i < children.size(); i++)
+    {   
+        if (children.at(i)->getContent().compare(s) == 0)
+            return true;
+    }
+    return false;
+}
 void Trie::addWord(string s)
 {
     //cout << s << endl;
@@ -42,7 +52,7 @@ void Trie::addWord(string s)
         {
             current = child;
             current->setWordMarker();
-            current->setWordFreq((current->getWordFreq()) + 1);
+            //current->setWordFreq((current->getWordFreq()) + 1);
         }
         else
         {
@@ -51,12 +61,12 @@ void Trie::addWord(string s)
             current->appendChild(tmp);
             current = tmp;
             current->setWordMarker();
-            current->setWordFreq((current->getWordFreq()) + 1);
+            //current->setWordFreq((current->getWordFreq()) + 1);
         }
         if ( i == tokens.size() - 1 )
         {
             current->setWordMarker();
-            current->setWordFreq((current->getWordFreq()) + 1);
+            //current->setWordFreq((current->getWordFreq()) + 1);
         }
     }
 }
@@ -76,22 +86,22 @@ int Trie::searchWord(string s)
         for ( int i = 0; i < tokens.size(); i++ )
         {
             Node* tmp = current->findChild(tokens.at(i));
-            cout << "cont: " << tmp->getContent() << endl;
+            //cout << "cont: " << tmp->getContent() << endl;
             if ( tmp == NULL )
-                return -1;
+                return 0;
             current = tmp;
         }
 
         if ( current->wordMarker() )
         {
             //cout << "returning" << current->getWordFreq();
+            current->setWordFreq((current->getWordFreq()) + 1);
             return current->getWordFreq();
         }
         else
-            return -1;
+            return 0;
     }
-
-    return -1;
+    return 0;
 }
 
 void Trie::print(Node* current)
