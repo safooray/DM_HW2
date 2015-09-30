@@ -8,6 +8,7 @@
 #ifndef TRIES_H
 #define	TRIES_H
 #include <iostream>
+#include <sstream>
 #include <vector>
 #include "Node.h"
 using namespace std;

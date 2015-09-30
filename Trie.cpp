@@ -21,8 +21,10 @@ Trie::~Trie()
 void Trie::addWord(string s)
 {
     istringstream iss(s);
-    vector<string> tokens{istream_iterator<string>{iss},
-                      istream_iterator<string>{}};
+    vector<string> tokens;
+    copy(istream_iterator<string>(iss),
+    istream_iterator<string>(),
+    back_inserter(tokens));
     Node* current = root;
    
     if ( tokens.size() == 0 )
@@ -58,13 +60,18 @@ void Trie::addWord(string s)
 
 int Trie::searchWord(string s)
 {
+        istringstream iss(s);
+    vector<string> tokens;
+    copy(istream_iterator<string>(iss),
+    istream_iterator<string>(),
+    back_inserter(tokens));
     Node* current = root;
 
     while ( current != NULL )
     {
-        for ( int i = 0; i < s.length(); i++ )
+        for ( int i = 0; i < tokens.size(); i++ )
         {
-            Node* tmp = current->findChild(s[i]);
+            Node* tmp = current->findChild(tokens.at(i));
             if ( tmp == NULL )
                 return -1;
             current = tmp;

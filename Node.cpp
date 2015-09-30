@@ -21,7 +21,7 @@ Node* Node::findChild(std::string s)
     for ( int i = 0; i < mChildren.size(); i++ )
     {
         Node* tmp = mChildren.at(i);
-        if ( strcmp(tmp->getContent(), s) == 0)
+        if (tmp->getContent().compare(s) == 0)
         {
             return tmp;
         }

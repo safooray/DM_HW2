@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
     
     
     //trie.print(trie.getRoot());
-    int tst = trie.searchWord("775");
+    int tst = trie.searchWord("25 52");
     /****** find one-item sets ******/
 	for (auto it = one_item_candidate.begin(); it != one_item_candidate.end(); ){
 		if (it->second < min_st){
