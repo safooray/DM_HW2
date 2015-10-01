@@ -5,6 +5,8 @@
  * Created on September 30, 2015, 1:19 PM
  */
 
+#include <map>
+
 #include "Utils.h"
 
 Utils::Utils() {
@@ -16,25 +18,43 @@ Utils::Utils(const Utils& orig) {
 Utils::~Utils() {
 }
 
-vector<strset> Utils::subsets(int k, vector<string> trans)
+vector<strset> Utils::subsets(int k, vector<string> trans, int tid)
 {
+    //printVecOfStrset(subSetStore[tid]);
+    //if(subSetStore.find(tid) != subSetStore.end())
+    //    return subSetStore[tid];
     vector<strset> cursubsets;
     vector<strset> presubsets;
     if (k == 0 || trans.empty() || trans.size() < k) { 
         return cursubsets; 
     }
 
-    if (trans.size() == k || k == 1) {
-        
+    if (trans.size() == k) {
+        vector<string> tmp;
+        //if(subSetStore.find(tid) == subSetStore.end())
+        //{
+            for (int m = 0; m < trans.size(); m++)
+            {
+                tmp.push_back(trans.at(m));
+            }
+            cursubsets.push_back(tmp);
+            subSetStore[tid] = cursubsets;
+        //}
+        //else
+        return cursubsets;
+    }
+    if (k == 2)
+    {
         for (int m = 0; m < trans.size(); m++)
         {
             vector<string> tmp;
             tmp.push_back(trans.at(m));
-            cursubsets.push_back(tmp);
+            presubsets.push_back(tmp);
         }
-        return cursubsets; 
+        subSetStore[tid] = presubsets;
     }
-    presubsets = (vector<strset>) subsets(k - 1, trans);
+    
+    presubsets = subSetStore[tid];
     int mycount = 0;
     for (int i = 0; i < presubsets.size(); i++ )
     {
@@ -54,6 +74,7 @@ vector<strset> Utils::subsets(int k, vector<string> trans)
             }
         }
     }
+    subSetStore[tid] = cursubsets;
     return cursubsets;
 }
 
