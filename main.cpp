@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
     item_freq_map one_item_candidate;
     Itemset is;
     is.freq(input, one_item_candidate);
-  //cout<<"one_item: "<<one_item_candidate.size()<<endl;
+
     /****** find one-item sets ******/
     for (auto it = one_item_candidate.begin(); it != one_item_candidate.end(); ){
         if (it->second < min_st){
@@ -43,13 +43,11 @@ int main(int argc, char *argv[])
         }
     }
 
-   // cout<<"one_item: "<<one_item_candidate.size()<<endl;
     ofstream output;
     output.open(output_filename);
     vector <int> one_item;
     /****** write one-item sets into the output file ****/
     for (item_freq_map::iterator it = one_item_candidate.begin(); it != one_item_candidate.end(); ++it) {
-        //cout << "tst: " << it->first << endl;
         output << it->first << " ("<< it->second << ")\n";
         one_item.push_back(stoi(it->first));
     }
@@ -68,7 +66,7 @@ int main(int argc, char *argv[])
     }
     ifstream in(input_filename);
     if (!in.is_open() ) {
-// handle error.
+    // handle error.
         cout << "input file not found!"<< endl;	
     }
     Utils utils;
@@ -91,10 +89,6 @@ int main(int argc, char *argv[])
             string temp = to_string(st[k]);
             sorted_trans.push_back(temp);
             }
-            //cout << "vec: ";
-            //for(int m = 0; m < sorted_trans.size(); m ++)
-        	//cout << sorted_trans.at(m) << " ";
-            //cout << endl;
             vector<strset> cursubsets = utils.subsets(2, sorted_trans, tid);
             tid++;
             //utils.printVecOfStrset(cursubsets);

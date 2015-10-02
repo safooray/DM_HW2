@@ -8,6 +8,7 @@ void Itemset::freq(istream& in, item_freq_map& words)
 
     while (in >> s) 
     {
+    	cout<<in<<endl;
        ++words[s];
     }
 }  
